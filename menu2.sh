@@ -1,6 +1,21 @@
-#!/bin/bash 
-# COLOR VALIDATION
-clear
+#!/bin/bash
+# //====================================================
+# //	System Request:Debian 9+/Ubuntu 18.04+/20+
+# //	Author:	Julak Bantur
+# //	Dscription: Xray MultiPort
+# //	email: putrameratus2@gmail.com
+# //  telegram: https://t.me/Cibut2d
+# //====================================================
+# // font color configuration | JULAK BANTUR AUTOSCRIPT
+###########- COLOR CODE -##############
+colornow=$(cat /etc/julak/theme/color.conf)
+VC="\e[0m"
+Green="\e[92;1m"
+BICyan='\033[1;96m'
+BIYellow='\033[1;93m'
+COLOR1="$(cat /etc/julak/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
+COLBG1="$(cat /etc/julak/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')"
+WH='\033[1;37m'
 y='\033[1;33m' #yellow
 l='\033[0;37m'
 BGX="\033[42m"
@@ -17,6 +32,7 @@ purple="\033[1;95m"
 YELL='\033[0;33m'
 cyan="\033[1;36m"
 c="\033[5;33m"
+###########- END COLOR CODE -##########
 
 # // Gettings Info
 ISP=$(cat /etc/xray/isp)
@@ -191,38 +207,37 @@ a=" ${z}ACCOUNT PREMIUM"
 BG_RED="\033[45;1m"
 echo -e " "
 echo -e " ${z}╭══════════════════════════════════════════════════════════╮${NC}"
-echo -e " ${z}│$NC\033[5;33m                     Premium Autoscript                   $NC${z}│$NC"
+echo -e " ${z}│$NC${COLOR1}                     Premium Autoscript                   $NC${z}│$NC"
+echo -e " ${z}╰══════════════════════════════════════════════════════════╯${NC}"
+echo -e " ${z}╭══════════════════════════════════════════════════════════╮${NC}"
+echo -e " ${z}│$NC • $NC${z} System OS ${NC}     ${z}=$NC ${COLOR1}$MODEL${NC}"
+echo -e " ${z}│$NC • $NC${z} Uptime Server ${NC} ${z}=$NC ${COLOR1}$SERONLINE${NC}"
+echo -e " ${z}│$NC • $NC${z} ISP ${NC}           ${z}=$NC ${COLOR1}$ISP${NC}"
+echo -e " ${z}│$NC • $NC${z} City ${NC}          ${z}=$NC ${COLOR1}$CITY${NC}"
+echo -e " ${z}│$NC • $NC${z} Server RAM ${NC}    ${z}=$NC ${COLOR1}$uram/$RAM MB $NC"
+echo -e " ${z}│$NC • $NC${z} Core Cpu ${NC}      ${z}=$NC ${COLOR1}$CORE${NC}"
+echo -e " ${z}│$NC • $NC${z} IP VPS ${NC}        ${z}=$NC ${COLOR1}$IPVPS${NC}"
+echo -e " ${z}│$NC • $NC${z} Domain ${NC}        ${z}=$NC ${COLOR1}$domain${NC}"
+echo -e " ${z}│$NC • $NC${z} Ns Domain ${NC}     ${z}=$NC ${COLOR1}$ns${NC}"
+echo -e " ${z}│$NC • $NC${z} Cpu Usage ${NC}     ${z}=$NC ${COLOR1}$cpu_usage${NC}"
 echo -e " ${z}╰══════════════════════════════════════════════════════════╯${NC}"
 echo -e "  ${zx} NGINX$NC : $status_nginx ${zx} WS-EPRO$NC : $status_ws_epro ${zx} DROPBEAR$NC : $status_dropbear ${zx} HAPROXY$NC : $status_haproxy   $NC${zx}$NC" 
 echo -e " ${z}╭══════════════════════════════════════════════════════════╮${NC}"
-echo -e " ${z}│$NC • $NC${z} System OS ${NC}     ${z}=$NC $MODEL${NC}"
-echo -e " ${z}│$NC • $NC${z} Uptime Server ${NC} ${z}=$NC $SERONLINE${NC}"
-echo -e " ${z}│$NC • $NC${z} ISP ${NC}           ${z}=$NC $ISP${NC}"
-echo -e " ${z}│$NC • $NC${z} City ${NC}          ${z}=$NC $CITY${NC}"
-echo -e " ${z}│$NC • $NC${z} IP VPS ${NC}        ${z}=$NC $IPVPS${NC}"
-echo -e " ${z}│$NC • $NC${z} Domain ${NC}        ${z}=$NC $domain${NC}"
-echo -e " ${z}│$NC • $NC${z} Ns Domain ${NC}     ${z}=$NC $ns${NC}"
-echo -e " ${z}│$NC • $NC${z} Server RAM ${NC}    ${z}=$NC $uram/$RAM MB $NC"
-echo -e " ${z}│$NC • $NC${z} Core Cpu ${NC}      ${z}=$NC $CORE${NC}"
-echo -e " ${z}│$NC • $NC${z} Cpu Usage ${NC}     ${z}=$NC $cpu_usage${NC}"
-echo -e " ${z}╰══════════════════════════════════════════════════════════╯${NC}"
-echo -e "                        ${BG_RED}ACCOUNT INFO${NC}"
-echo -e " ${z}╭══════════════════════════════════════════════════════════╮${NC}"
-echo -e "  SSH : ${green}$ssh1$ |"   "VMESS$ : ${green}$vmc |"   "VLESS : ${green}$vlx |"   "TROJAN : ${green}$trx |"   "SS : ${green}$ssx"
+echo -e "  SSH : ${green}$ssh1${NC} |"   "VMESS : ${green}$vmc${NC} |"   "VLESS : ${green}$vlx${NC} |"   "TROJAN : ${green}$trx${NC} |"   "SSOCK : ${green}$ssx${NC}"
 echo -e " ${z}╰══════════════════════════════════════════════════════════╯${NC}"
 echo -e " ${z}╭══════════════════════════════════════════════════════════╮${NC}"
-echo -e " ${z}│$NC   [${z}01${NC}] SSH                     [${z}07${NC}] CHECK RUNNING ${z}       │$NC" 
-echo -e " ${z}│$NC   [${z}02${NC}] VMESS                   [${z}08${NC}] CHECK BANDWITH ${z}      │$NC"    
-echo -e " ${z}│$NC   [${z}03${NC}] VLESS                   [${z}09${NC}] SPEEDTEST ${z}           │$NC"  
-echo -e " ${z}│$NC   [${z}04${NC}] TROJAN                  [${z}10${NC}] BACKUP/RESTORE ${z}      │$NC"
-echo -e " ${z}│$NC   [${z}05${NC}] SHADOW                  [${z}11${NC}] ADD BOT ${z}             │$NC"
-echo -e " ${z}│$NC   [${z}06${NC}] SETTING                 [${z}12${NC}] UPDATE AUTOSCRIPT ${z}   │$NC"
+echo -e " ${z}│$NC   [${zx}01${NC}] ${COLOR1}SSH${VC}                     [${zx}07${NC}] ${COLOR1}CHECK RUNNING${VC} ${z}       │$NC" 
+echo -e " ${z}│$NC   [${zx}02${NC}] ${COLOR1}VMESS${VC}                   [${zx}08${NC}] ${COLOR1}CHECK BANDWITH${VC} ${z}      │$NC"    
+echo -e " ${z}│$NC   [${zx}03${NC}] ${COLOR1}VLESS${VC}                   [${zx}09${NC}] ${COLOR1}SPEEDTEST${VC} ${z}           │$NC"  
+echo -e " ${z}│$NC   [${zx}04${NC}] ${COLOR1}TROJAN${VC}                  [${zx}10${NC}] ${COLOR1}BACKUP/RESTORE${VC} ${z}      │$NC"
+echo -e " ${z}│$NC   [${zx}05${NC}] ${COLOR1}SHADOW${VC}                  [${zx}11${NC}] ${COLOR1}ADD BOT${VC} ${z}             │$NC"
+echo -e " ${z}│$NC   [${zx}06${NC}] ${COLOR1}SETTING${VC}                 [${zx}12${NC}] ${COLOR1}UPDATE AUTOSCRIPT${VC} ${z}   │$NC"
 echo -e " ${z}╰══════════════════════════════════════════════════════════╯${NC}"
-echo -e "   HARI INI : ${green}$ttoday$NC KEMARIN : ${green}$tyest$NC BULAN : ${green}$tmon$NC $NC"
+echo -e "      HARI INI : ${green}$ttoday${NC} KEMARIN : ${green}$tyest${NC} BULAN : ${green}$tmon${NC} $NC"
 echo -e " ${z}╭══════════════════════════════════════════════════════════╮${NC}"
-echo -e " ${z}│$NC${z} AUTHOR$NC          ${z}=$NC Julak Bantur"
-echo -e " ${z}│$NC${z} CLIENT$NC          ${z}=$NC $username [$sts]"
-echo -e " ${z}│$NC${z} EXPIRED SCRIPT$NC  ${z}=$NC $exp / $certifacate Days$NC "
+echo -e " ${z}│$NC${z} AUTHOR$NC          ${z}=$NC ${COLOR1}Julak Bantur${VC}"
+echo -e " ${z}│$NC${z} CLIENT$NC          ${z}=$NC ${COLOR1}$username [$sts]${VC}"
+echo -e " ${z}│$NC${z} EXPIRED SCRIPT$NC  ${z}=$NC ${COLOR1}$exp / $certifacate Days$NC "
 echo -e " ${z}╰══════════════════════════════════════════════════════════╯${NC}"
 echo -e "                        ${vers}"
 echo -e "                        ${TZ} ${NC}"
@@ -282,4 +297,4 @@ rm -rf update.sh && wget ${julak}update.sh && chmod +x update.sh && ./update.sh
 clear
 menu
 ;;
-esac
+esac 
