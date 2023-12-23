@@ -1,35 +1,38 @@
 #!/bin/bash
+# //====================================================
+# //	System Request:Debian 9+/Ubuntu 18.04+/20+
+# //	Author:	Julak Bantur
+# //	Dscription: Xray MultiPort
+# //	email: putrameratus2@gmail.com
+# //  telegram: https://t.me/Cibut2d
+# //====================================================
+# // font color configuration | JULAK BANTUR AUTOSCRIPT
+###########- COLOR CODE -##############
+colornow=$(cat /etc/julak/theme/color.conf)
+VC="\e[0m"
 Green="\e[92;1m"
-RED="\033[31m"
-YELLOW="\033[33m"
-BLUE="\033[36m"
-FONT="\033[0m"
-GREENBG="\033[42;37m"
-REDBG="\033[41;37m"
-OK="${Green}--->${FONT}"
-ERROR="${RED}[ERROR]${FONT}"
-GRAY="\e[1;30m"
-NC='\e[0m'
-red='\e[1;31m'
-green='\e[0;32m'
-DF='\e[39m'
-Bold='\e[1m'
-Blink='\e[5m'
-yell='\e[33m'
-red='\e[31m'
-green='\e[32m'
-blue='\e[34m'
-PURPLE='\e[35m'
-cyan='\e[36m'
-Lred='\e[91m'
-Lgreen='\e[92m'
-Lyellow='\e[93m'
-NC='\e[0m'
-GREEN='\033[0;32m'
-ORANGE='\033[0;33m'
-LIGHT='\033[0;37m'
+BICyan='\033[1;96m'
+BIYellow='\033[1;93m'
+COLOR1="$(cat /etc/julak/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
+COLBG1="$(cat /etc/julak/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')"
+WH='\033[1;37m'
+y='\033[1;33m' #yellow
+l='\033[0;37m'
+BGX="\033[42m"
+CYAN="\033[96m"
+z="\033[96m"
+zx="\033[97;1m" # // putih
+RED='\033[0;31m'
+NC='\033[0m'
+gray="\e[1;30m"
+Blue="\033[0;34m"
+green='\033[1;32m'
 grenbo="\e[92;1m"
-red() { echo -e "\\033[32;1m${*}\\033[0m"; }
+purple="\033[1;95m"
+YELL='\033[0;33m'
+cyan="\033[1;36m"
+c="\033[5;33m"
+###########- END COLOR CODE -##########
 # Getting
 export CHATID="2118266757"
 export KEY="6718133374:AAHPRa6ftNJshlkLctQuBMM0L82JibFrnWw"
