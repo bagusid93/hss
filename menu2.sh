@@ -127,45 +127,45 @@ clear
 
 # // RUNNING SSH
 if [[ $ssh_service == "running" ]]; then 
-   status_ssh="${green}ON ✅${NC}"
+   status_ssh="${green}ON${NC}"
 else
-   status_ssh="${z}OF ❌${NC} "
+   status_ssh="${RED}OF${NC} "
 fi
 
 # // RUNNING WEBSOCKET
 ssh_ws=$( systemctl status ws | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
 if [[ $ssh_ws == "running" ]]; then
-    status_ws_epro="${green}ON✅${NC}"
+    status_ws_epro="${green}ON${NC}"
 else
-    status_ws_epro="${z}OF ❌${NC} "
+    status_ws_epro="${RED}OF${NC} "
 fi
 
 # RUNNING HAPROXY
 if [[ $haproxy_service == "running" ]]; then 
-   status_haproxy="${green}ON ✅${NC}"
+   status_haproxy="${green}ON${NC}"
 else
-   status_haproxy="${z}OF ❌${NC} "
+   status_haproxy="${RED}OFF${NC} "
 fi
 
 # RUNNING XRAY
 if [[ $xray_service == "running" ]]; then 
-   status_xray="${green}ON ✅${NC}"
+   status_xray="${green}ON${NC}"
 else
-   status_xray="${z}OF ❌${NC} "
+   status_xray="${RED}OFF${NC} "
 fi
 
 # RUNNING NGINX
 if [[ $nginx_service == "running" ]]; then 
-   status_nginx="${green}ON ✅${NC}"
+   status_nginx="${green}ON${NC}"
 else
-   status_nginx="${z}OF ❌${NC} "
+   status_nginx="${RED}OFF${NC} "
 fi
 
 # RUNNING DROPBEAR
 if [[ $dropbear_service == "running" ]]; then 
-   status_dropbear="${green}ON ✅${NC}"
+   status_dropbear="${green}ON${NC}"
 else
-   status_dropbear="${z}OF ❌${NC} "
+   status_dropbear="${RED}OF${NC} "
 fi
 # // UPDATE / REVISI all menu
 julak="https://sc2.scvps.biz.id/rabah/"
@@ -223,7 +223,7 @@ echo -e " ${z}│$NC • $NC${z} Cpu Usage ${NC}     ${z}=$NC ${COLOR1}$cpu_usag
 echo -e " ${z}╰══════════════════════════════════════════════════════════╯${NC}"
 echo -e "  ${zx} NGINX$NC : $status_nginx ${zx} WS-EPRO$NC : $status_ws_epro ${zx} DROPBEAR$NC : $status_dropbear ${zx} HAPROXY$NC : $status_haproxy   $NC${zx}$NC" 
 echo -e " ${z}╭══════════════════════════════════════════════════════════╮${NC}"
-echo -e "  SSH : ${green}$ssh1${NC} |"   "VMESS : ${green}$vmc${NC} |"   "VLESS : ${green}$vlx${NC} |"   "TROJAN : ${green}$trx${NC} |"   "SSOCK : ${green}$ssx${NC}"
+echo -e "   SSH : ${green}$ssh1${NC} |"   "VMESS : ${green}$vmc${NC} |"   "VLESS : ${green}$vlx${NC} |"   "TROJAN : ${green}$trx${NC} |"   "SSOCK : ${green}$ssx${NC}"
 echo -e " ${z}╰══════════════════════════════════════════════════════════╯${NC}"
 echo -e " ${z}╭══════════════════════════════════════════════════════════╮${NC}"
 echo -e " ${z}│$NC   [${zx}01${NC}] ${COLOR1}SSH${VC}                     [${zx}07${NC}] ${COLOR1}CHECK RUNNING${VC} ${z}       │$NC" 
@@ -236,10 +236,10 @@ echo -e " ${z}╰═════════════════════
 echo -e "      HARI INI : ${green}$ttoday${NC} KEMARIN : ${green}$tyest${NC} BULAN : ${green}$tmon${NC} $NC"
 echo -e " ${z}╭══════════════════════════════════════════════════════════╮${NC}"
 echo -e " ${z}│$NC${z} AUTHOR$NC          ${z}=$NC ${COLOR1}Julak Bantur${VC}"
-echo -e " ${z}│$NC${z} CLIENT$NC          ${z}=$NC ${COLOR1}$username [$sts]${VC}"
-echo -e " ${z}│$NC${z} EXPIRED SCRIPT$NC  ${z}=$NC ${COLOR1}$exp / $certifacate Days$NC "
+echo -e " ${z}│$NC${z} CLIENT$NC          ${z}=$NC ${COLOR1}$username${NC} [${zx}$sts]${NC}"
+echo -e " ${z}│$NC${z} EXPIRED SCRIPT$NC  ${z}=$NC ${COLOR1}$exp${NC} / ${zx}$certifacate${NC} Days$NC "
 echo -e " ${z}╰══════════════════════════════════════════════════════════╯${NC}"
-echo -e "                        ${vers}"
+echo -e "                        ${BG_RED)${vers}${NC}"
 echo -e "                        ${TZ} ${NC}"
 echo
 read -p " Select Options 1/12 : " wZtXtQ
