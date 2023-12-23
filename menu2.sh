@@ -199,11 +199,10 @@ umon="$(vnstat -i eth0 -m | grep "`date +"%b '%y"`" | awk '{print $6" "substr ($
 tmon="$(vnstat -i eth0 -m | grep "`date +"%b '%y"`" | awk '{print $9" "substr ($10, 1, 1)}')"
 clear
 ########### // JULAK // BANTUR
-TZ="\033[1;35m___\033[1;34m___\033[1;32m___\033[1;36m___\033[1;37m___\033[1;34m"
-# // JULAK--BANTUR
-r="\033[1;31m"  #REDTERANG
-a=" ${z}ACCOUNT PREMIUM" 
 BG_RED="\033[45;1m"
+TZ="\033[1;35m___\033[1;34m___\033[1;32m___\033[1;36m___\033[1;37m___\033[1;34m"
+vers="${BG_RED}VERSION  JB-02 LITE"
+# // JULAK--BANTUR
 echo -e " "
 echo -e " ${z}╭══════════════════════════════════════════════════════════╮${NC}"
 echo -e " ${z}│$NC${COLOR1}                     Premium Autoscript                   $NC${z}│$NC"
@@ -238,7 +237,7 @@ echo -e " ${z}│$NC${z} AUTHOR$NC          ${z}=$NC ${COLOR1}Julak Bantur${VC}"
 echo -e " ${z}│$NC${z} CLIENT$NC          ${z}=$NC ${COLOR1}$username${NC} [${zx}$sts]${NC}"
 echo -e " ${z}│$NC${z} EXPIRED SCRIPT$NC  ${z}=$NC ${COLOR1}$exp${NC} / ${zx}$certifacate${NC} Days$NC "
 echo -e " ${z}╰══════════════════════════════════════════════════════════╯${NC}"
-echo -e "                        ${BG_RED)VERSION  JB-02 LITE${NC}"
+echo -e "                        VERSION  JB-02 LITE"
 echo -e "                        ${TZ} ${NC}"
 echo
 read -p " Select Options 1/12 : " wZtXtQ
@@ -297,3 +296,4 @@ clear
 menu
 ;;
 esac 
+
