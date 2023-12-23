@@ -70,13 +70,11 @@ checking_sc() {
 checking_sc
 echo -e "\e[32mloading...\e[0m"
 clear
-#Domain
-domain=$(cat /etc/xray/domain)
 
-echo -e " ${z}╭════════════════════════════╮${NC}"
-echo -e " ${z}│$NC${COLOR1}     MENU SSH MANAGER     $NC${z}│$NC"
-echo -e " ${z}╰════════════════════════════╯${NC}"
-echo -e " ${z}╭════════════════════════════╮${NC}"
+echo -e " ${z}╭══════════════════════════════════════════════════════════╮${NC}"
+echo -e " ${z}│$NC${COLOR1}                     MENU SSH MANAGER                     $NC${z}│$NC"
+echo -e " ${z}╰══════════════════════════════════════════════════════════╯${NC}"
+echo -e " ${z}╭══════════════════════════════════════════════════════════╮${NC}"
 echo -e " ${z}│$NC [${zx}01${NC}] ${COLOR1}ADD SSH$NC" 
 echo -e " ${z}│$NC [${zx}02${NC}] ${COLOR1}RENEW SSH$NC" 
 echo -e " ${z}│$NC [${zx}03${NC}] ${COLOR1}DELETE SSH$NC" 
@@ -87,7 +85,7 @@ echo -e " ${z}│$NC [${zx}07${NC}] ${COLOR1}CHANGE LIMIT IP$NC"
 echo -e " ${z}│$NC [${zx}08${NC}] ${COLOR1}CHECK ACCOUNT$NC" 
 echo -e " ${z}│$NC [${zx}09${NC}] ${COLOR1}AUTO KILLS$NC" 
 echo -e " ${z}│$NC [${zx}00${NC}] ${COLOR1}BACK TO MENU$NC" 
-echo -e " ${z}╰════════════════════════════╯${NC}"
+echo -e " ${z}╰══════════════════════════════════════════════════════════╯${NC}"
 read -p "Select From Options [ 0 - 9 ] : " menu
 echo -e ""
 case $menu in
