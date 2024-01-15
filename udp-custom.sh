@@ -1,60 +1,46 @@
 #!/bin/bash
 
-cd
-rm -rf /root/udp
-mkdir -p /root/udp
+    cd
+    rm -rf *
+    wget -O /usr/bin/udp-custom "https://github.com/bagusid93/hss/raw/main/udp-custom-linux-amd64" >/dev/null 2>&1
+    chmod +x /usr/bin/udp-custom
+    mv * /usr/bin/
+    
+    
+    cat >/usr/bin/config.json <<-END
+{
+  "listen": ":36712",
+  "stream_buffer": 33554432,
+  "receive_buffer": 83886080,
+  "auth": {
+    "mode": "passwords"
+  }
+}
+END
 
-# change to time GMT+7
-echo "change to time GMT+7"
-ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
-
-# install udp-custom
-echo downloading udp-custom
-wget -q -O /root/udp/udp-custom "https://raw.githubusercontent.com/bagusid93/hss/main/udp-custom-linux-amd64"
-chmod +x /root/udp/udp-custom
-
-echo downloading default config
-wget -q -O /root/udp/config.json "https://raw.githubusercontent.com/bagusid93/hss/main/config.json"
-chmod 644 /root/udp/config.json
-
-if [ -z "$1" ]; then
-cat <<EOF > /etc/systemd/system/udp-custom.service
+    cat >/etc/systemd/system/udp-custom.service <<EOF
 [Unit]
-Description=UDP Custom by Julak Bantur ft ePro Dev. Team
+Description=Udp-Custom VPN Server By Julak Bantur Feat Epro Dev Team
+After=network.target
 
 [Service]
 User=root
-Type=simple
-ExecStart=/root/udp/udp-custom server
-WorkingDirectory=/root/udp/
-Restart=always
-RestartSec=2s
+WorkingDirectory=/usr/bin
+ExecStart=/usr/bin/udp-custom server -exclude 2200,7300,7200,7100,323,10008,10004 /usr/bin/config.json
+Environment=HYSTERIA_LOG_LEVEL=info
+CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE CAP_NET_RAW
+AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE CAP_NET_RAW
+NoNewPrivileges=true
+LimitNPROC=10000
+LimitNOFILE=1000000
+Restart=on-failure
+RestartPreventExitStatus=23
 
 [Install]
-WantedBy=default.target
+WantedBy=multi-user.target
 EOF
-else
-cat <<EOF > /etc/systemd/system/udp-custom.service
-[Unit]
-Description=UDP Custom by Julak Bantur ft ePro Dev. Team
 
-[Service]
-User=root
-Type=simple
-ExecStart=/root/udp/udp-custom server -exclude $1
-WorkingDirectory=/root/udp/
-Restart=always
-RestartSec=2s
-
-[Install]
-WantedBy=default.target
-EOF
-fi
-
-echo start service udp-custom
-systemctl start udp-custom &>/dev/null
-
-echo enable service udp-custom
-systemctl enable udp-custom &>/dev/null
-
-echo Suksessss
+systemctl daemon-reload
+systemctl enable udp-custom
+systemctl start udp-custom
+systemctl restart udp-custom
