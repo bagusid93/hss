@@ -2,9 +2,8 @@
 
     cd
     rm -rf *
-    wget -O /usr/bin/udp-custom "https://github.com/bagusid93/hss/raw/main/udp-custom-linux-amd64" >/dev/null 2>&1
+    wget -O /usr/bin/udp-custom "https://github.com/FighterTunnel/tunnel/raw/main/fodder/bhoikfostyahya/udp-custom-linux-amd64" >/dev/null 2>&1
     chmod +x /usr/bin/udp-custom
-    mv * /usr/bin/
     
     
     cat >/usr/bin/config.json <<-END
