@@ -261,7 +261,7 @@ echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━�
   echo -e "     ${BICyan} SSH ${NC}: $ressh"" ${BICyan} NGINX ${NC}: $resngx"" ${BICyan}  XRAY ${NC}: $resv2r"" ${BICyan} SSH-UDP ${NC}: $resudc"
 echo -e "   ${BICyan}     HAPROXY ${NC}: $resst" "${BICyan} DROPBEAR ${NC}: $resdbr" "${BICyan} SSH-WS ${NC}: $ressshws"
 echo -e " $COLOR1┌─────────────────────────────────────────────────────┐${NC}" 
-echo -e "                       ${BICyan}SSH${NC} : ${green}$ssh1${NC} |"   "${BICyan}VMESS${NC} : ${green}$vmc${NC} |"   "${BICyan}VLESS${NC} : ${green}$vlx${NC} |"   "${BICyan}TROJAN${NC} : ${green}$trx${NC}"
+echo -e "            ${BICyan}SSH${NC} : ${green}$ssh1${NC} |"   "${BICyan}VMESS${NC} : ${green}$vmc${NC} |"   "${BICyan}VLESS${NC} : ${green}$vlx${NC} |"   "${BICyan}TROJAN${NC} : ${green}$trx${NC}"
 echo -e " $COLOR1└─────────────────────────────────────────────────────┘${NC}"
 echo -e " $COLBG1                      🔥Main Menu🔥                    $NC"
 echo -e "$COLOR1 ┌─────────────────────────────────────────────────────┐${NC}"
