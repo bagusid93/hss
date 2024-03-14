@@ -1,4 +1,4 @@
-UU#!/bin/bash
+#!/bin/bash
 # //====================================================
 # //	System Request:Debian 9+/Ubuntu 18.04+/20+
 # //	Author:	Julak Bantur
