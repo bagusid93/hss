@@ -585,7 +585,7 @@ main() {
         exit
         ;;
     *)
-        rm -rf kimut.sh
+        rm -rf ub20.sh
         echo -e "${RED}You wrong command !${FONT}"
         ;;
     esac
