@@ -172,9 +172,9 @@ read -p "   Please select numbers 1-2 or Any Button(Random) : " host
 echo ""
 if [[ $host == "1" ]]; then
 echo -e "   \e[1;32mPlease Enter Your Subdomain $NC"
-read -p "   Subdomain: " host1
+read -p "   Subdomain: " domain
 echo "IP=" >> /var/lib/julak/ipvps.conf
-echo $host1 > /etc/xray/domain
+echo $domain > /etc/xray/domain
 echo ""
 elif [[ $host == "2" ]]; then
 #install cf
