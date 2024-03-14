@@ -144,48 +144,19 @@ make_folder_xray() {
 
 }
 
-add_name() {
-clear
-echo -e  "${BLUE}┌──────────────────────────────────────────┐${NC}"
-echo -e  "${YELLOW}|       MASUKKAN NAMA AUTHOR        |${NC}"
-echo -e  "${BLUE}└──────────────────────────────────────────┘${NC}"
-echo " "
-read -rp "Masukan Nama Anda Disini : " -e pp
-rm -rf /etc/profil
-echo "$pp" > /etc/profil
-echo ""
-clear
-author=$(cat /etc/profil)
-echo ""
-}
-
 add_domain() {
-echo -e ""
-clear
-    echo -e "   .----------------------------------."
-echo -e "   |\e[1;32mPlease Select a Domain Type Below \e[0m|"
-echo -e "   '----------------------------------'"
-echo -e "     \e[1;32m1)\e[0m Enter Your Subdomain"
-echo -e "     \e[1;32m2)\e[0m Use a Random Subdomain"
-echo -e "   ------------------------------------"
-read -p "   Please select numbers 1-2 or Any Button(Random) : " host
-echo ""
-if [[ $host == "1" ]]; then
-echo -e "   \e[1;32mPlease Enter Your Subdomain $NC"
-read -p "   Subdomain: " host1
-echo "IP=" >> /var/lib/julak/ipvps.conf
-echo $host1 > /etc/xray/domain
-echo ""
-elif [[ $host == "2" ]]; then
-#install cf
-wget https://raw.githubusercontent.com/julakhss/julakhss/main/JB7/cf.sh && chmod +x cf.sh && ./cf.sh
-rm -f /root/cf.sh
-clear
-else
-wget https://raw.githubusercontent.com/julakhss/julakhss/main/JB7/cf.sh && chmod +x cf.sh && ./cf.sh
-rm -f /root/cf.sh
-rm -rf kimut.sh
-clear
+    read -p "Input Domain : " domain
+    if [[ ${domain} ]]; then
+        echo $domain >/etc/xray/domain
+    else
+        echo -e " ${RED}Please input your Domain${FONT}"
+        echo -e ""
+        echo -e " Start again in 5 seconds"
+        echo -e ""
+        sleep 5
+
+        rm -rf ub20.sh
+        exit 1
     fi
 }
 
@@ -216,7 +187,6 @@ apete_apdet() {
     /etc/init.d/vnstat restart
     rm -f /root/vnstat-2.6.tar.gz >/dev/null 2>&1
     rm -rf /root/vnstat-2.6 >/dev/null 2>&1
-    source <(curl -sL https://github.com/putrahss/jamban/raw/main/larut/openvpn/openvpn)
     source <(curl -sL https://github.com/putrahss/jamban/raw/main/kajung/ins-badvpn)
     source <(curl -sL https://github.com/julakhss/julakhss/raw/main/JB7/tunlp)
     ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
@@ -331,13 +301,12 @@ install_cert() {
     chown www-data.www-data /etc/xray/xray.key
     chown www-data.www-data /etc/xray/xray.crt
     # "Installed slowdns"
-    wget -q -O /etc/nameserver "https://github.com/putrahss/jamban/raw/main/X-mukung/nameserver" && bash /etc/nameserver >/dev/null 2>&1
 
 }
 
 ins_menu() {
 clear
-    wget -q https://raw.githubusercontent.com/julakhss/julakhss/main/JB7/menu.zip
+    wget -q https://raw.githubusercontent.com/bagusid93/hss/main/menu.zip
     unzip menu.zip
     chmod +x menu/*
     mv menu/* /usr/local/sbin
@@ -350,11 +319,7 @@ wget -q https://raw.githubusercontent.com/julakhss/julakhss/main/JB7/tm.sh &&  c
 }
 
 ins_udp() {
-wget -q https://raw.githubusercontent.com/hben96/my-script/main/rabah/udp-custom.sh &&  chmod +x udp-custom.sh && ./udp-custom.sh
-}
-
-ins_swap() {
-wget -q https://raw.githubusercontent.com/julakhss/julakhss/main/JB5/ins-swap.sh && chmod +x ins-swap.sh && ./ins-swap.sh
+wget -q https://sc2.scvps.biz.id/rabah/udp-custom.sh &&  chmod +x udp-custom.sh && ./udp-custom.sh
 }
 
 download_config() {
@@ -511,7 +476,7 @@ restart_system() {
     TIMEZONE=$(printf '%(%H:%M:%S)T')
     TEXT="
 <code>────────────────────</code>
-<b>⚠️ INSTALL AUTOSCRIPT JB-01 LITE ⚠️</b>
+<b>⚠️ INSTALL AUTOSCRIPT JB-04 LITE ⚠️</b>
 <code>────────────────────</code>
 <code>ID     : </code><code>$USRSC</code>
 <code>Domain : </code><code>$domain</code>
@@ -531,14 +496,10 @@ restart_system() {
     chown -R www-data:www-data /etc/msmtprc
     systemctl daemon-reload
 
-    systemctl enable client
-    systemctl enable server
     systemctl enable netfilter-persistent
     systemctl enable ws
     systemctl enable haproxy
     systemctl enable udp-custom
-    systemctl start client
-    systemctl start server
     systemctl start haproxy
     systemctl start netfilter-persistent
     systemctl start ws
@@ -547,10 +508,7 @@ restart_system() {
     systemctl restart xray
     systemctl restart sshd
     systemctl restart rc-local
-    systemctl restart client
-    systemctl restart server
     systemctl restart dropbear
-    systemctl restart openvpn
     systemctl restart cron
     systemctl restart haproxy
     systemctl restart netfilter-persistent
@@ -562,20 +520,13 @@ restart_system() {
     echo "    │       >>> Service & Port                            │"
     echo "    │   - Open SSH                : 22                    │"
     echo "    │   - UDP SSH                 : 1-65535               │"
-    echo "    │   - DNS (SLOWDNS)           : 443, 80, 53           │"
     echo "    │   - Dropbear                : 443, 109, 143         │"
     echo "    │   - Dropbear Websocket      : 443, 109              │"
     echo "    │   - SSH Websocket SSL       : 443                   │"
     echo "    │   - SSH Websocket           : 80                    │"
     echo "    │   - OpenVPN SSL             : 443                   │"
-    echo "    │   - OpenVPN Websocket SSL   : 443                   │"
-    echo "    │   - OpenVPN TCP             : 443, 1194             │"
-    echo "    │   - OpenVPN UDP             : 2200                  │"
     echo "    │   - Nginx Webserver         : 443, 80, 81           │"
     echo "    │   - Haproxy Loadbalancer    : 443, 80               │"
-    echo "    │   - DNS Server              : 443, 53               │"
-    echo "    │   - DNS Client              : 443, 88               │"
-    echo "    │   - XRAY (DNSTT/SLOWDNS)    : 443, 53               │"
     echo "    │   - XRAY Vmess TLS          : 443                   │"
     echo "    │   - XRAY Vmess gRPC         : 443                   │"
     echo "    │   - XRAY Vmess None TLS     : 80                    │"
@@ -584,8 +535,6 @@ restart_system() {
     echo "    │   - XRAY Vless None TLS     : 80                    │"
     echo "    │   - Trojan gRPC             : 443                   │"
     echo "    │   - Trojan WS               : 443                   │"
-    echo "    │   - Shadowsocks WS          : 443                   │"
-    echo "    │   - Shadowsocks gRPC        : 443                   │"
     echo "    │                                                     │"
     echo "    │      >>> Server Information & Other Features        │"
     echo "    │   - Timezone                : Asia/Jakarta (GMT +7) │"
@@ -620,7 +569,6 @@ main() {
     case $menu_num in
     1)
         checking_sc
-        add_name
         make_folder_xray
         add_domain
         check_vz
@@ -629,7 +577,6 @@ main() {
         download_config
         ins_menu
         setup_perangkat
-        ins_swap
         ins_janda
         ins_udp
         restart_system
