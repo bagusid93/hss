@@ -1,4 +1,4 @@
-#!/bin/bash
+UU#!/bin/bash
 # //====================================================
 # //	System Request:Debian 9+/Ubuntu 18.04+/20+
 # //	Author:	Julak Bantur
@@ -237,17 +237,56 @@ echo ""
 read -p " Select menu : " opt
 echo -e ""
 case $opt in
-1) clear ; menu-ssh ;;
-2) clear ; menu-vmess ;;
-3) clear ; menu-vless ;;
-4) clear ; menu-trojan ;;
-5) clear ; menu-set ;;
-6) clear ; running ;;
-7) clear ; menu-theme ;;
-8) clear ; menu-backup ;;
-9) clear ; rm -rf update.sh && wget -q https://raw.githubusercontent.com/bagusid93/hss/main/update.sh && chmod +x update.sh && ./update.sh ;;
-10) clear ; autoreboot ;;
-0) clear ; menu ;;
-x) exit ;;
-*) echo "salah tekan sayang" ; sleep 1 ; menu ;;
-esac
+1)
+clear
+menu-ssh
+;;
+2)
+clear
+menu-vmess
+;;
+3)
+clear
+menu-vless
+;;
+4)
+clear
+menu-trojan
+;;
+5)
+clear
+menu-set
+;;
+6)
+clear
+running
+;;
+7)
+clear
+menu-theme
+;;
+8)
+clear
+menu-backup
+;;
+9)
+clear
+rm -rf update.sh && wget -q https://raw.githubusercontent.com/bagusid93/hss/main/update.sh && chmod +x update.sh && ./update.sh
+;;
+10)
+clear
+autoreboot
+;;
+00)
+clear
+menu
+;;
+x)
+clear
+exit
+;;
+*)
+clear
+menu
+;;
+esac 
