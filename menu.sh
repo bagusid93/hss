@@ -244,8 +244,8 @@ dayleft=$(( ($d1 - $d2) / 86400 ))
 
 clear
 echo -e " "
-figlet  Julak Bantur  | lolcat
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}" | lolcat
+figlet  Julak Bantur
+echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
 echo -e "🔰${CYAN} Server Uptime       👉 ${COLOR1}$( uptime -p  | cut -d " " -f 2-10000 ) ${NC}"
 echo -e "🔰${CYAN} Current Time        👉 ${COLOR1}$( date -d "0 days" +"%d-%m-%Y | %X" )${NC}"
 echo -e "🔰${CYAN} Operating System    👉 ${COLOR1}$( cat /etc/os-release | grep -w PRETTY_NAME | sed 's/PRETTY_NAME//g' | sed 's/=//g' | sed 's/"//g' ) ( $( uname -m) )${NC}"
@@ -257,11 +257,11 @@ echo -e "🔰${CYAN} Jumlah Ram          👉 ${COLOR1}${totalram} MB"
 echo -e "🔰${CYAN} CPU Usage           👉 ${COLOR1}$cpu_usage"
 echo -e "🔰${CYAN} Whatsapp            👉 ${COLOR1}081250851741${NC}"
 echo -e "🔰${CYAN} AutoScript By       👉 ${COLOR1}PAPADA'AN STORE${NC}"
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}" | lolcat
+echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
   echo -e "     ${BICyan} SSH ${NC}: $ressh"" ${BICyan} NGINX ${NC}: $resngx"" ${BICyan}  XRAY ${NC}: $resv2r"" ${BICyan} SSH-UDP ${NC}: $resudc"
 echo -e "   ${BICyan}     HAPROXY ${NC}: $resst" "${BICyan} DROPBEAR ${NC}: $resdbr" "${BICyan} SSH-WS ${NC}: $ressshws"
 echo -e " $COLOR1┌─────────────────────────────────────────────────────┐${NC}" 
-echo -e "  ${BICyan}SSH${NC} : ${green}$ssh1${NC} |"   "${BICyan}VMESS${NC} : ${green}$vmc${NC} |"   "${BICyan}VLESS${NC} : ${green}$vlx${NC} |"   "${BICyan}TROJAN${NC} : ${green}$trx${NC} "
+echo -e "                       ${BICyan}SSH${NC} : ${green}$ssh1${NC} |"   "${BICyan}VMESS${NC} : ${green}$vmc${NC} |"   "${BICyan}VLESS${NC} : ${green}$vlx${NC} |"   "${BICyan}TROJAN${NC} : ${green}$trx${NC}"
 echo -e " $COLOR1└─────────────────────────────────────────────────────┘${NC}"
 echo -e " $COLBG1                      🔥Main Menu🔥                    $NC"
 echo -e "$COLOR1 ┌─────────────────────────────────────────────────────┐${NC}"
@@ -274,11 +274,11 @@ echo -e " $COLOR1└────────────────────
 echo -e "$COLOR1 ┌─────────────────────────────────────────────────────┐${NC}"
 echo -e "${COLOR1} ${NC}  ${BICyan}HARI ini${NC}: ${green}$ttoday$NC ${BICyan}KEMARIN${NC}: ${green}$tyest$NC ${BICyan}BULAN${NC}: ${green}$tmon$NC $NC"
 echo -e "$COLOR1 └─────────────────────────────────────────────────────┘${NC}"
-echo -e " $COLOR1┌─────────────────────────────────────────────────────┐${NC}" | lolcat
+echo -e " $COLOR1┌─────────────────────────────────────────────────────┐${NC}"
 echo -e " $COLOR1│$NC  ${WH}Version      ${NC} :${BICyan} JB-04 LITE ${NC}"
 echo -e " $COLOR1│$NC  ${WH}User         ${NC} :${BIYellow} ${Name} ${NC}"
 echo -e " $COLOR1│$NC  ${WH}Expired      ${NC} :${Blue} ${Exp1}${NC} [${red}$dayleft${NC} ${COLOR1}Days${NC}] ${NC}"
-echo -e " $COLOR1└─────────────────────────────────────────────────────┘${NC}" | lolcat
+echo -e " $COLOR1└─────────────────────────────────────────────────────┘${NC}"
 echo ""
 echo -e   " [$COLOR1 Tekan x Untuk Exit Script ${NC}]"
 echo ""
